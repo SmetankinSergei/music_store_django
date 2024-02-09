@@ -1,0 +1,47 @@
+.delete-block {
+    margin-top: 6em;
+    margin-inline: 2em;
+}
+
+.cancel-button {
+    display: block;
+    text-align: center;
+    padding: 1em;
+    color: #bbb7b7;
+    width: 9.5em;
+    height: 3em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #252525;
+}
+
+.cancel-button:hover {
+    background-color: #5e5e5e;
+}
+
+.delete-button {
+    width: 10em;
+    height: 3em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: red;
+}
+
+.delete-button:hover {
+    background-color: #f67070;
+}
+
+.cancel-button, .delete-button {
+    margin: 1em;
+}
+
+.question {
+    color: #252525;
+    font-size: 2em;
+    text-align: center;
+    padding: 1em;
+    height: 3em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #707070;
+}

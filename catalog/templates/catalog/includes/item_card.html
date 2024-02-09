@@ -1,0 +1,18 @@
+{% load static %}
+{% load catalog_tags %}
+
+<div class="item-card">
+        <p class="item-name">{{ product.name }}</p>
+        <img class="item-img" src="{{ product.img.url }}">
+        {% if user.is_authenticated %}
+        <div class="card-buttons">
+            <a class="details-button" href="{% url 'catalog:product' product.pk %}"><div>details</div></a>
+            <div class="buy-button">buy</div>
+        </div>
+
+        {% if product.user == user %}
+            <a class="edit-button" href="{% url 'catalog:update_product' product.pk %}"><div>edit</div></a>
+            <a class="delete-button" href="{% url 'catalog:delete_product' product.pk %}"><div>delete</div></a>
+        {% endif %}
+        {% endif %}
+</div>

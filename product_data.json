@@ -1,0 +1,100 @@
+[
+{
+  "model": "catalog.product",
+  "pk": 1,
+  "fields": {
+    "name": "Cort Zenox",
+    "description": "Designed for rock and metal guitarists, the Zenox Series features four models: Z-Custom1, Z-Custom2, Z44 and Z42.",
+    "img": "products_img/Cort_zenox.jpg",
+    "category": 1,
+    "price": 450,
+    "create_date": "2024-01-11",
+    "change_date": "2024-02-06",
+    "user": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 2,
+  "fields": {
+    "name": "Fender TELECASTER",
+    "description": "REAL DEAL SOUND",
+    "img": "products_img/Fender_telec.jpg",
+    "category": 1,
+    "price": 500,
+    "create_date": "2024-01-11",
+    "change_date": "2024-02-06",
+    "user": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 3,
+  "fields": {
+    "name": "Epiphone DOT",
+    "description": "It has a glued-in neck of mahogany (before 2008, maple) and a rosewood fingerboard.",
+    "img": "products_img/Epiphone_dot.jpg",
+    "category": 1,
+    "price": 350,
+    "create_date": "2024-01-11",
+    "change_date": "2024-02-06",
+    "user": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 4,
+  "fields": {
+    "name": "Gibson Les Paul",
+    "description": "The Gibson Les Paul is a solid body electric guitar that was first sold by the Gibson Guitar Corporation in 1952.",
+    "img": "products_img/Gibson_les_paul.jpg",
+    "category": 1,
+    "price": 700,
+    "create_date": "2024-01-11",
+    "change_date": "2024-02-06",
+    "user": 1
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 5,
+  "fields": {
+    "name": "Ernie Ball - 3221",
+    "description": "Ernie Ball - 3221 - Electric Guitar String Set (3 Pack) - Nickel Wound Ö Bananas at Large",
+    "img": "products_img/Ernie_ball.jpg",
+    "category": 2,
+    "price": 17,
+    "create_date": "2024-01-11",
+    "change_date": "2024-02-06",
+    "user": 10
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 6,
+  "fields": {
+    "name": "ProMark 7A",
+    "description": "ProMark Drum Sticks - Finesse 7A",
+    "img": "products_img/Pro_mark.jpg",
+    "category": 2,
+    "price": 15,
+    "create_date": "2024-01-11",
+    "change_date": "2024-02-06",
+    "user": 10
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 7,
+  "fields": {
+    "name": "Ibanez",
+    "description": "Ibanez",
+    "img": "products_img/GRX70QA_uHJZkMG.jpg",
+    "category": 1,
+    "price": 400,
+    "create_date": "2024-02-06",
+    "change_date": "2024-02-06",
+    "user": 1
+  }
+}
+]

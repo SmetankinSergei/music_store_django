@@ -1,0 +1,135 @@
+.header {
+    z-index: 2;
+}
+
+.items-list {
+    margin-inline: 3em;
+    margin-bottom: 5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item-card {
+    margin: 1em;
+    width: 25em;
+    height :21em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #666666;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.item-name {
+    margin: 1em auto;
+    color: #252525;
+}
+
+.item-img {
+    margin: 0 25%;
+    margin-bottom: 1em;
+    width: 50%;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #bbb7b7;
+}
+
+.card-buttons {
+    display: flex;
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.edit-button, .delete-button {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: green;
+    color: #101010;
+    padding-top: 1em;
+    width: 10em;
+    height: 3em;
+    text-align: center;
+}
+
+.edit-button:hover {
+    background-color: #8af38a;
+}
+
+.delete-button {
+    left: 14em;
+    background-color: red;
+}
+
+.delete-button:hover {
+    background-color: #f67070;
+}
+
+.details-button {
+    display: block;
+}
+
+.details-button, .buy-button {
+    margin-inline: 1em;
+    text-align: center;
+    color: #bbb7b7;
+    padding-top: 1em;
+    width: 45%;
+    height: 3em;
+    border-radius: 0.5em;
+    border: solid 1px #000;
+}
+
+.details-button, .button {
+    background-color: #252525;
+}
+
+.buy-button {
+    background-color: red;
+}
+
+.details-button:hover, .button:hover {
+    background-color: #5e5e5e;
+}
+
+.buy-button:hover {
+    background-color: #f67070;
+}
+
+.buttons {
+    margin-inline: 4em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth-only-buttons {
+    display: flex;
+}
+
+.my-products-button {
+    margin-left: 1em;
+}
+
+.categories-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 35em;
+}
+
+.button {
+    text-align: center;
+    padding-top: 1em;
+    margin-top: 5em;
+    display: block;
+    width: 11em;
+    height: 3em;
+    color: #bbb7b7;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+}

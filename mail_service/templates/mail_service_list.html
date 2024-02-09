@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mail_service_tags %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/mail_service.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="correction" style="height:4em;"></div>
+<div class="main-content">
+    <div class="services">
+        <h2>Select mailing option</h2>
+        {% get_mail_services_list as services %}
+        {% for service in services %}
+            <a class="service-link" href="{% url 'mail_service:new_mailing' service.name %}">
+                <div class="service-info">
+                    <div class="service-name">{{ service.name }}</div>
+                    <div class="service-description">{{ service.description }}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="mailing-list">
+        <h2 class="list-name">All mailings</h2>
+    </div>
+</div>
+{% endblock %}

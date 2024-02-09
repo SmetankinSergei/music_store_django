@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/product_form.css' %}">
+<link rel="stylesheet" href="{% static 'css/update_product.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="correction" style="margin-top:4em;"></div>
+
+<div class="formset">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">confirm</button>
+    </form>
+
+    <div class="form">
+        {{ formset.management_form }}
+        {% for form in formset.forms %}
+            {{ form.as_p }}
+            <div style="text-align:center;height:3em;padding-top:2em;">****************************</div>
+        {% endfor %}
+    </div>
+</div>
+<div class="correction" style="margin-bottom:5em;"></div>
+{% endblock %}

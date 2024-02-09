@@ -1,0 +1,9 @@
+<div class="article-card">
+    <img class="article-img" src="{{ article.img.url }}">
+    <div class="article-headline">
+        <div class="article-name">{{ article.name }}</div>
+        <div class="article-date">{{ article.create_date }}</div>
+        <div class="article-views">views: {{ article.views_amount }}</div>
+        <a class="to-article-button" href="{% url 'blog:article' article.pk %}">to article</a>
+    </div>
+</div>

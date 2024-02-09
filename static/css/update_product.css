@@ -1,0 +1,9 @@
+.formset {
+    display: flex;
+}
+
+form, .form {
+    margin: 0 auto;
+    margin-top: 2em;
+    width: 45%;
+}

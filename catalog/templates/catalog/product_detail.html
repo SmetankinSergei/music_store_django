@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="item-info">
+    <div class="text-line">item name: {{ product.name }}</div>
+    <div class="text-line">item price: {{ product.price }} USD</div>
+    <div class="text-line">description: {{ product.description }}</div>
+    {% if item.discount %}
+        <div class="text-line">discount: {{ product.discount }}</div>
+    {% endif %}
+
+    {% if active_version %}
+        <div class="active-version">
+            active version of this product: {{ active_version.version_number }}
+        </div>
+    {% endif %}
+
+    <a class="buy-button">buy</a>
+</div>
+{% endblock %}

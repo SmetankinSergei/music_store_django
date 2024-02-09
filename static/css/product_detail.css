@@ -1,0 +1,44 @@
+.item-info {
+    margin: 0 auto;
+    margin-top: 6em;
+    color: #252525;
+    width: 70%;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #666666;
+}
+
+.text-line {
+    font-size: 2em;
+    margin: 1em;
+}
+
+.buy-button {
+    color: #bbb7b7;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 8em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    font-size: 1.5em;
+    width: 45%;
+    height: 3em;
+    border-radius: 0.5em;
+    border: solid 1px #000;
+    background-color: red;
+}
+
+.buy-button:hover {
+    background-color: #f67070;
+}
+
+.active-version {
+    padding: 1em;
+    height: 3em;
+    margin: 1em auto;
+    width: 95%;
+    border-radius: 0.5em;
+    border: solid 1px #000;
+    background-color: green;
+}

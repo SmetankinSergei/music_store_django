@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load catalog_tags %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="buttons">
+        <div class="auth-only-buttons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'catalog:new_product' %}" class="new-product-button button">add product</a>
+                <a href="{% url 'catalog:show_my_products' %}" class="my-products-button button">my products</a>
+            {% endif %}
+        </div>
+
+        <div class="categories-buttons">
+            <a href="{% url 'catalog:catalog' %}" class="instruments-button button">all products</a>
+            {% get_categories as categories %}
+            {% for category in categories %}
+                <a href="{% url 'catalog:show_category' %}?category={{category.pk}}"
+                   class="{{ category.name }}-button button">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="items-list">
+        {% if not is_filter_data %}
+            {% get_products as products %}
+        {% endif %}
+        {% for product in products %}
+            {% include 'catalog/includes/item_card.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}

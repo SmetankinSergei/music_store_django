@@ -1,0 +1,52 @@
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services, .mailing-list {
+    width: 45em;
+    margin: 1em;
+    padding: 2em;
+    text-align: center;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    color: #bbb7b7;
+    background-color: #666666;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services > h2, .mailing-list > h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    color: #252525;
+}
+
+.service-name {
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+.service-info {
+    margin-top: 1em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #252525;
+}
+
+.service-info:hover{
+    background-color: #5e5e5e;
+}
+
+.service-link {
+    color: #bbb7b7;
+}
+
+.service-description {
+    font-size: 1em;
+    margin-bottom: 1.5em;
+}

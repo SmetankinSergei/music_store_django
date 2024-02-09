@@ -1,0 +1,49 @@
+.article-card {
+    position: relative;
+    display: flex;
+    border: solid 1px #000;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 0.5em;
+    background-color: #666666;
+}
+
+.article-headline {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+
+.article-name {
+    font-size: 3em;
+    font-weight: bold;
+    color: #252525;
+}
+
+.article-date, .article-views {
+    margin-top: 0.5em;
+    color: #252525;
+}
+
+.article-img {
+    width: 20%;
+    border-radius: 0.5em;
+}
+
+.to-article-button {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    color: #bbb7b7;
+    text-align: center;
+    padding-top: 1em;
+    background-color: #252525;
+    width: 10em;
+    height: 3em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+}
+
+.to-article-button:hover {
+    background-color: #5e5e5e;
+}

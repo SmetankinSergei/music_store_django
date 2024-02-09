@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/article_form.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="top-correction"></div>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="buttons-block">
+    <button class="confirm-button" type="submit">confirm</button>
+    {% if is_new_article %}
+    <a class="cancel-button" href="{% url 'blog:blog' %}">cancel</a>
+    {% elif is_update_article %}
+    <a class="cancel-button" href="{% url 'blog:article' article.pk %}">cancel</a>
+    </div>
+    {% endif %}
+</form>
+{% endblock %}

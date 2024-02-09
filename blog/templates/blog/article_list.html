@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tags %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/article_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="top-correction"></div>
+    {% if user.is_authenticated %}
+        <a class="new-article" href="{% url 'blog:create' %}">new article</a>
+    {% endif %}
+
+    {% get_published_articles as articles %}
+    {% for article in articles %}
+        {% include 'blog/includes/article.html' %}
+    {% endfor %}
+{% endblock %}

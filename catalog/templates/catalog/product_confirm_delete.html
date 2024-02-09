@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/confirm_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="delete-block">
+    <form class="delete-form" method="post">
+        {% csrf_token %}
+        <p class="question">delete product "{{ product.name }}"?</p>
+        <button class="delete-button" type="submit">confirm</button>
+        <a class="cancel-button" href="{% url 'catalog:catalog' %}">cancel</a>
+    </form>
+</div>
+{% endblock %}

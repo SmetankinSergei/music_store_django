@@ -1,0 +1,16 @@
+.new-article {
+    margin: 2em;
+    display: block;
+    color: #bbb7b7;
+    text-align: center;
+    padding-top: 1em;
+    width: 15em;
+    height: 3em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #252525;
+}
+
+.new-article:hover {
+    background-color: #5e5e5e;
+}
