@@ -1,6 +1,6 @@
 from django import template
 
-from store.constants import SITE_SECTIONS
+from config.constants import SITE_SECTIONS
 
 register = template.Library()
 
