@@ -8,6 +8,7 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
+        del kwargs['request']
         super(ProductForm, self).__init__(*args, **kwargs)
 
     class Meta:
