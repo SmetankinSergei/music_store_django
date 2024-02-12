@@ -15,14 +15,17 @@ class Product(models.Model):
     create_date = models.DateField(auto_now_add=True)
     change_date = models.DateField(auto_now=True)
     user = models.ForeignKey(to=User, on_delete=CASCADE, **NULLABLE)
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = 'Product'
-        verbose_name_plural = 'Products'
-        ordering = ('-create_date',)
+        permissions = [
+            ('change_published_status', 'Can change published status'),
+            ('change_description', 'Can change description'),
+            ('change_category', 'Can change category'),
+        ]
 
 
 class Category(models.Model):
