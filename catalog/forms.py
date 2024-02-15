@@ -39,6 +39,12 @@ class ProductForm(forms.ModelForm):
         return product
 
 
+class ModeratedProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ('description', 'category', 'price', 'is_published')
+
+
 class VersionForm(forms.ModelForm):
     class Meta:
         model = Version

@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, ModeratedProductForm
 from catalog.models import Product, Version, Category
 
 
@@ -15,6 +15,7 @@ class CatalogListView(ListView):
 
 
 class ProductDetailView(DetailView):
+
     model = Product
     extra_context = {'title': 'product'}
 
@@ -46,20 +47,39 @@ class ProductCreateView(CreateView):
 
 class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     model = Product
-    form_class = ProductForm
     permission_required = 'catalog.change_product'
     success_url = reverse_lazy('catalog:catalog')
     template_name = 'catalog/product_update.html'
+
+    def get_form_class(self):
+
+        if ''.join(map(str, self.request.user.groups.all())) == 'manager':
+            print('permission access')
+            return ModeratedProductForm
+        # return ProductForm
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
         ProductFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
         if self.request.method == 'POST':
-            context_data['formset'] = ProductFormset(self.request.POST, instance=self.object)
-            context_data['form'] = ProductForm(data=self.request.POST, instance=self.object)
+            if self.object.user == self.request.user:
+                print('atatata')
+                context_data['formset'] = ProductFormset(self.request.POST, instance=self.object)
+                context_data['form'] = ProductForm(data=self.request.POST, instance=self.object)
+            elif ''.join(map(str, self.request.user.groups.all())) == 'manager':
+                context_data['form'] = ModeratedProductForm
+            else:
+                context_data['formset'] = ProductFormset(self.request.POST, instance=self.object)
+                context_data['form'] = ProductForm(data=self.request.POST, instance=self.object)
         else:
-            context_data['formset'] = ProductFormset(instance=self.object)
-            context_data['form'] = ProductForm(instance=self.object)
+            if self.object.user == self.request.user:
+                context_data['formset'] = ProductFormset(self.request.POST, instance=self.object)
+                context_data['form'] = ProductForm(data=self.request.POST, instance=self.object)
+            elif ''.join(map(str, self.request.user.groups.all())) == 'manager':
+                context_data['form'] = ModeratedProductForm
+            else:
+                context_data['formset'] = ProductFormset(instance=self.object)
+                context_data['form'] = ProductForm(instance=self.object)
         context_data['title'] = 'edit product'
         return context_data
 
