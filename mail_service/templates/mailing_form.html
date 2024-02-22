@@ -1,6 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load mail_service_tags %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/new_mailing.css' %}">
+{% endblock %}
 
 {% block content %}
+<div class="correction" style="margin-bottom:5em;"></div>
 
+<div class="main-content">
+    <div class="mailing-form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="hidden" name="service_name" value="{{service_name}}">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="recipients">
+        <div class="recipients-list">
+            {% get_recipients_list as recipients_list %}
+            {% for recipient in recipients_list %}
+                {% include 'includes/recipient.html' %}
+            {% endfor %}
+        </div>
+
+        <div class="service-buttons">
+            <a href="?action=add_all" class="add-all-button">add all</a>
+            <a href="?action=remove_all" class="remove-all-button">remove all</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

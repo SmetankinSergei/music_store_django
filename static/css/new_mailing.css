@@ -1,0 +1,76 @@
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 2em;
+}
+
+.mailing-form, .recipients {
+    width: 49%;
+    height: 35em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #666666;
+}
+
+.recipients {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipients-list {
+    overflow: auto;
+}
+
+.service-buttons {
+    border-top: solid 1px #000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.recipient {
+    display: flex;
+    margin: 1em;
+    height: 3em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #666666;
+    justify-content: space-between;
+}
+
+.recipient-name {
+    margin: 1em;
+    font-weight: bold;
+    color: #252525;
+}
+
+.remove-recipient-button, .add-recipient-button, .add-all-button, .remove-all-button {
+    display: block;
+    background-color: #252525;
+    color:  #bbb7b7;
+    text-align: center;
+    padding-top: 0.5em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    width: 8em;
+    height: 2em;
+    margin: 0.5em;
+}
+
+.remove-recipient-button, .remove-all-button {
+    background-color: red;
+}
+
+.remove-recipient-button:hover,
+.add-recipient-button:hover,
+.add-all-button:hover,
+.remove-all-button:hover {
+    background-color: #666666;
+}
+
+.remove-recipient-button {
+
+}
+
+.add-recipient-button {
+
+}
