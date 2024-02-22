@@ -25,13 +25,6 @@ def register(request):
             user.is_active = False
             user.save()
 
-            # send_mail(
-            #     subject='registration',
-            #     message=REGISTER_MAIL_MESSAGE + '&' + 'users/email_verification/' + verification_token,
-            #     from_email=settings.EMAIL_HOST_USER,
-            #     recipient_list=[user.email],
-            # )
-
             verification_link = "http://127.0.0.1:8000/users/email_verification/?token={}&user_id={}"\
                 .format(verification_token, user.pk)
 

@@ -56,14 +56,12 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
         if ''.join(map(str, self.request.user.groups.all())) == 'manager':
             print('permission access')
             return ModeratedProductForm
-        # return ProductForm
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
         ProductFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
         if self.request.method == 'POST':
             if self.object.user == self.request.user:
-                print('atatata')
                 context_data['formset'] = ProductFormset(self.request.POST, instance=self.object)
                 context_data['form'] = ProductForm(data=self.request.POST, instance=self.object)
             elif ''.join(map(str, self.request.user.groups.all())) == 'manager':
