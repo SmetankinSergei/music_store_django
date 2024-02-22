@@ -57,4 +57,38 @@
         </div>
     </div>
 </div>
+
+
+{% if session.mailing_type != 'ONE_TIME' %}
+    <div class="days-choice-block">
+        <div class="days-choice-title">SELECT DAYS</div>
+
+        <div class="days">
+        {% if session.mailing_type == 'WEEK_DAY' %}
+            {% get_week_days as days %}
+            {% get_session_week_days as session_days %}
+            {% for day in days %}
+                {% if day in session_days %}
+                    <a href="?week_day={{day}}" class="week-day active-day">{{ day }}</a>
+                {% else %}
+                    <a href="?week_day={{day}}" class="week-day">{{ day }}</a>
+                {% endif %}
+            {% endfor %}
+
+        {% elif session.mailing_type == 'MONTH_DAY' %}
+            {% get_months_days as days %}
+            {% get_session_month_days as session_days %}
+            {% for day in days %}
+                {% if day in session_days %}
+                    <a href="?month_day={{day}}" class="month-day active-day">{{ day }}</a>
+                {% else %}
+                    <a href="?month_day={{day}}" class="month-day">{{ day }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+<div class="correction" style="margin-bottom:5em;"></div>
 {% endblock %}

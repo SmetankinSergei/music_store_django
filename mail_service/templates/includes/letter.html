@@ -1,6 +1,6 @@
 <div class="letter">
     <div class="letter-control">
-        <div class="subject">{{ letter.subject }}</div>
+        <div class="subject">{{ letter.subject|truncatechars:20 }}</div>
 
         <div class="letter-buttons">
             {% if letter in session.show_letters_list %}

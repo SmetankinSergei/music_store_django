@@ -57,6 +57,21 @@ class MailingCreateView(CreateView):
 
         if self.request.GET.get('remove_letter'):
             session.letter = None
+
+        if self.request.GET.get('month_day'):
+            day = int(self.request.GET.get('month_day'))
+            if day not in session.months_days:
+                session.months_days.append(day)
+            else:
+                session.months_days.remove(day)
+
+        if self.request.GET.get('week_day'):
+            day = self.request.GET.get('week_day')
+            if day not in session.week_days:
+                session.week_days.append(day)
+            else:
+                session.week_days.remove(day)
+
         return context
 
 

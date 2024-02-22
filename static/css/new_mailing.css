@@ -6,7 +6,7 @@
 
 .mailing-form, .recipients {
     width: 49%;
-    height: 35em;
+    height: 30em;
     border: solid 1px #000;
     border-radius: 0.5em;
     background-color: #666666;
@@ -28,6 +28,8 @@
 }
 
 .service-buttons {
+    background-color: #505050;
+    border-radius: 0 0 0.5em 0.5em;
     border-top: solid 1px #000;
     height: 3em;
     display: flex;
@@ -106,6 +108,8 @@ button:hover {
 }
 
 .recipients-title, .mailings-title {
+    background-color: #505050;
+    border-radius: 0.25em 0.25em 0 0;
     border-bottom: solid 1px #000;
     text-align: center;
     padding: 0.3em;
@@ -146,5 +150,57 @@ button {
     margin-left: 30%;
     margin-top: 2.5%;
     color:  #bbb7b7;
+    background-color: red;
+}
+
+.days-choice-block {
+    margin: 2em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #666666;
+}
+
+.days-choice-title {
+    background-color: #505050;
+    border-radius: 0.25em 0.25em 0 0;
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: solid 1px #000;
+    color: #252525;
+    padding: 0.2em;
+}
+
+.days {
+    padding-inline: 0.5em;
+    height: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.month-day, .week-day {
+    height: 2em;
+    text-align: center;
+    padding-top: 0.5em;
+    margin-top: 0.5em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #252525;
+    color: #bbb7b7;
+}
+
+.month-day:hover, .week-day:hover {
+    background-color: #666666;
+}
+
+.month-day {
+    width: 2em;
+}
+
+.week-day {
+    width: 10em;
+}
+
+.active-day {
     background-color: red;
 }
