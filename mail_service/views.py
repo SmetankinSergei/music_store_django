@@ -27,6 +27,8 @@ class MailingCreateView(CreateView):
         service_name = self.kwargs.get('service_name')
         context['service_name'] = service_name
         action = self.request.GET.get('action')
+        new_letter = self.request.GET.get('new_letter')
+        context['new_letter'] = new_letter
         if action == 'add':
             recipient_pk = self.request.GET.get('recipient_pk')
             recipient = Recipient.objects.get(pk=recipient_pk)
@@ -36,7 +38,7 @@ class MailingCreateView(CreateView):
             recipient = Recipient.objects.get(pk=recipient_pk)
             session.recipients_list.remove(recipient)
         elif action == 'add_all':
-            session.recipients_list = get_recipients_list()
+            session.recipients_list = list(get_recipients_list())
         elif action == 'remove_all':
             session.recipients_list = []
         return context

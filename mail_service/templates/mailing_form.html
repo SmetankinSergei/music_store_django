@@ -11,16 +11,31 @@
 
 <div class="main-content">
     <div class="mailing-form">
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
+        {% if new_letter == 'new' %}
+            <div class="mailings-list">
+                {% get_letters as letters %}
+                {% for letter in letters %}
 
-            <input type="hidden" name="service_name" value="{{service_name}}">
-            <button type="submit">Submit</button>
-        </form>
+                {% endfor %}
+            </div>
+
+            <a href="?new_letter=no">write a new letter</a>
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input type="hidden" name="service_name" value="{{service_name}}">
+                <button type="submit">Submit</button>
+            </form>
+
+            <a href="?new_letter=new">select from list</a>
+        {% endif %}
     </div>
 
     <div class="recipients">
+        <div class="recipients-title">RECIPIENTS LIST</div>
+
         <div class="recipients-list">
             {% get_recipients_list as recipients_list %}
             {% for recipient in recipients_list %}
