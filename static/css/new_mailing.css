@@ -12,17 +12,24 @@
     background-color: #666666;
 }
 
+.mailing-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .recipients {
     display: flex;
     flex-direction: column;
 }
 
-.recipients-list {
+.recipients-list, .mailings-list {
     overflow: auto;
 }
 
 .service-buttons {
     border-top: solid 1px #000;
+    height: 3em;
     display: flex;
     justify-content: space-between;
 }
@@ -37,13 +44,34 @@
     justify-content: space-between;
 }
 
-.recipient-name {
+.letter {
+    margin: 1em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #666666;
+    justify-content: space-between;
+}
+
+.letter-control {
+    display: flex;
+    margin: 0.1em;
+    height: 3em;
+    background-color: #666666;
+    justify-content: space-between;
+}
+
+.full-letter {
+    padding: 1em;
+    border-top: solid 1px #000;
+}
+
+.recipient-name, .subject {
     margin: 1em;
     font-weight: bold;
     color: #252525;
 }
 
-.remove-recipient-button, .add-recipient-button, .add-all-button, .remove-all-button {
+.simple-button {
     display: block;
     background-color: #252525;
     color:  #bbb7b7;
@@ -51,27 +79,72 @@
     padding-top: 0.5em;
     border: solid 1px #000;
     border-radius: 0.5em;
-    width: 8em;
+    width: 12em;
     height: 2em;
     margin: 0.5em;
 }
 
-.remove-recipient-button, .remove-all-button {
+.letter-buttons {
+    display: flex;
+}
+
+.letter-buttons > a {
+    width: 8em;
+}
+
+.remove-recipient-button, .remove-all-button, .remove-letter-button {
     background-color: red;
 }
 
 .remove-recipient-button:hover,
 .add-recipient-button:hover,
 .add-all-button:hover,
-.remove-all-button:hover {
+.remove-all-button:hover,
+.letter-choice:hover,
+button:hover {
     background-color: #666666;
 }
 
-.recipients-title {
+.recipients-title, .mailings-title {
     border-bottom: solid 1px #000;
     text-align: center;
     padding: 0.3em;
     font-weight: bold;
     font-size: 2em;
     color: #252525;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 1em;
+    color: #252525;
+}
+
+input, textarea {
+    background-color: #909090;
+    margin-left: 2.5%;
+    padding: 1em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    height: 3em;
+    width: 95%;
+}
+
+textarea {
+    height: 8em;
+}
+
+button {
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    height: 3em;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 2.5%;
+    color:  #bbb7b7;
+    background-color: red;
 }

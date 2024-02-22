@@ -1,8 +1,10 @@
+from django.urls import reverse
 from django.utils import timezone
 
 from django.db import models
 
 from mail_service.constants import MAILING_TYPES, MAILING_STATUSES
+from mail_service.session import session
 
 NULLABLE = {'null': True, 'blank': True}
 
@@ -31,6 +33,10 @@ class Mailing(models.Model):
 class MailContent(models.Model):
     subject = models.CharField(max_length=250)
     content = models.TextField()
+
+    @staticmethod
+    def get_absolute_url():
+        return reverse('mail_service:new_mailing', kwargs={'service_name': session.mailing_type})
 
     class Meta:
         verbose_name = 'Letter'

@@ -12,24 +12,32 @@
 <div class="main-content">
     <div class="mailing-form">
         {% if new_letter == 'new' %}
-            <div class="mailings-list">
-                {% get_letters as letters %}
-                {% for letter in letters %}
+            <div class="mailings-title">NEW MAILING</div>
 
-                {% endfor %}
-            </div>
-
-            <a href="?new_letter=no">write a new letter</a>
-        {% else %}
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
 
-                <input type="hidden" name="service_name" value="{{service_name}}">
+                <input type="hidden" name="service_name" value="{{session.mailing_type}}">
                 <button type="submit">Submit</button>
             </form>
 
-            <a href="?new_letter=new">select from list</a>
+            <div class="service-buttons">
+                <a class="letter-choice simple-button" href="?new_letter=no">select from list</a>
+            </div>
+        {% else %}
+            <div class="mailings-title">LETTERS LIST</div>
+
+            <div class="mailings-list">
+                {% get_letters as letters %}
+                {% for letter in letters %}
+                    {% include 'includes/letter.html' %}
+                {% endfor %}
+            </div>
+
+            <div class="service-buttons">
+                <a class="letter-choice simple-button" href="?new_letter=new">write a new letter</a>
+            </div>
         {% endif %}
     </div>
 
@@ -44,8 +52,8 @@
         </div>
 
         <div class="service-buttons">
-            <a href="?action=add_all" class="add-all-button">add all</a>
-            <a href="?action=remove_all" class="remove-all-button">remove all</a>
+            <a href="?action=add_all" class="add-all-button simple-button">add all</a>
+            <a href="?action=remove_all" class="remove-all-button simple-button">remove all</a>
         </div>
     </div>
 </div>

@@ -1,0 +1,29 @@
+<div class="letter">
+    <div class="letter-control">
+        <div class="subject">{{ letter.subject }}</div>
+
+        <div class="letter-buttons">
+            {% if letter in session.show_letters_list %}
+                <a href="?hide_letter={{letter.pk}}" class="show-letter-button simple-button">hide</a>
+            {% else %}
+                <a href="?show_letter={{letter.pk}}" class="show-letter-button simple-button">show</a>
+            {% endif %}
+
+            {% if letter == session.letter %}
+                <a href="?remove_letter={{letter.pk}}" class="remove-letter-button simple-button">remove</a>
+            {% else %}
+                <a href="?add_letter={{letter.pk}}" class="add-letter-button simple-button">add</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if letter in session.show_letters_list %}
+        <div class="full-letter">
+            <div class="letter-title">{{ letter.subject }}</div>
+
+            <div class="letter-content">
+                {{ letter.content }}
+            </div>
+        </div>
+    {% endif %}
+</div>
