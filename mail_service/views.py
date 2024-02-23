@@ -2,7 +2,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, DetailView,
 
 from mail_service.forms import MailingForm
 from mail_service.models import MailContent
-from mail_service.request_handler import recipient_handler, letter_handler, period_handler
+from mail_service.request_handler import recipient_handler, letter_handler, period_handler, time_handler
 from mail_service.session import session
 
 
@@ -37,6 +37,8 @@ class MailingCreateView(CreateView):
         recipient_handler(self.request)
         letter_handler(self.request)
         period_handler(self.request)
+        if self.request.GET.get('hours'):
+            time_handler(self.request)
         return context
 
 

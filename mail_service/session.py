@@ -7,6 +7,7 @@ class Session:
         self.letter = None
         self.mailing = None
         self.mailing_type = None
+        self.mailing_time = None
 
     def save_mailing(self):
         pass
@@ -22,6 +23,7 @@ class Session:
         self.letter = None
         self.mailing = None
         self.mailing_type = None
+        self.mailing_time = None
 
 
 session = Session()

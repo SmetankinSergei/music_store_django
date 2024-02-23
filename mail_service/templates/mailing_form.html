@@ -68,7 +68,9 @@
     <div class="confirm-block">
         <div class="confirm-title">CONFIRM MAILING</div>
 
-        {% if mailing_done %}
+        {% mailing_done as done %}
+
+        {% if done %}
             <a href="" class="confirm-button">confirm</a>
         {% else %}
             <p class="confirm-message">You can add a mailing only after you select all the required fields:</p>
@@ -86,17 +88,21 @@
             {% endif %}
 
             {% if session.mailing_type != 'ONE_TIME' %}
-                {% if session.week_days or session.month_days %}
+                {% if session.week_days or session.months_days %}
                     <div class="days-check field-check-active">days</div>
                 {% else %}
                     <div class="days-check field-check">days</div>
                 {% endif %}
             {% endif %}
 
-            <div class="time-check field-check">time</div>
+            {% if session.mailing_time %}
+                <div class="time-check field-check-active">time</div>
+            {% else %}
+                <div class="time-check field-check">time</div>
+            {% endif %}
         {% endif %}
     </div>
 </div>
 
-<div class="correction" style="margin-bottom:5em;"></div>
+<div class="correction" style="margin-bottom:4em;"></div>
 {% endblock %}

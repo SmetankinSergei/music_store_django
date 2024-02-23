@@ -1,3 +1,5 @@
+import datetime
+
 from mail_service.constants import WEEK_DAYS, MONTHS_DAYS
 from mail_service.models import Recipient, MailContent
 from mail_service.session import session
@@ -41,9 +43,10 @@ def period_handler(request):
     if request.GET.get('month_day'):
         day = int(request.GET.get('month_day'))
         if day not in session.months_days:
-            session.months_days.append(day)
+            session.months_days.append(int(day))
+            print(session.months_days)
         else:
-            session.months_days.remove(day)
+            session.months_days.remove(int(day))
 
     if request.GET.get('week_day'):
         day = request.GET.get('week_day')
@@ -60,3 +63,15 @@ def period_handler(request):
     if request.GET.get('action') == 'remove_all_days':
         session.week_days = []
         session.months_days = []
+
+
+def time_handler(request):
+    hours = request.GET.get('hours')
+    minutes = request.GET.get('minutes')
+    if not hours:
+        hours = '00'
+    if not minutes:
+        minutes = '00'
+
+    time_instance = datetime.time(int(hours), int(minutes))
+    session.mailing_time = time_instance

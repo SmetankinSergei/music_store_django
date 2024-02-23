@@ -257,9 +257,14 @@ button {
     display: block;
     width: 15em;
     height: 3em;
+    color:  #bbb7b7;
     border: solid 1px #000;
     border-radius: 0.5em;
     background-color: red;
+}
+
+.confirm-button:hover {
+    background-color: #666666;
 }
 
 .field-check, .field-check-active {

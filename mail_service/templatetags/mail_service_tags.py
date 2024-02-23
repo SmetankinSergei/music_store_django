@@ -45,3 +45,14 @@ def get_session_week_days():
 @register.simple_tag()
 def get_session_month_days():
     return session.months_days
+
+
+@register.simple_tag()
+def mailing_done():
+    if session.letter and session.recipients_list and session.mailing_time:
+        if session.mailing_type != 'ONE_TIME':
+            if session.week_days or session.months_days:
+                return True
+            else:
+                return False
+        return True
