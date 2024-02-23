@@ -1,3 +1,4 @@
+from django.db.models import CASCADE
 from django.urls import reverse
 from django.utils import timezone
 
@@ -22,7 +23,8 @@ class Recipient(models.Model):
 class Mailing(models.Model):
     send_time = models.TimeField(default=timezone.now)
     recipients = models.ManyToManyField(Recipient, related_name='recipients', **NULLABLE)
-    mailing_type = models.CharField(max_length=50, choices=MAILING_TYPES, default=MAILING_TYPES[0][0])
+    letter = models.ForeignKey('MailContent', on_delete=CASCADE, **NULLABLE)
+    mailing_type = models.CharField(max_length=50, choices=MAILING_TYPES)
     status = models.CharField(max_length=50, choices=MAILING_STATUSES, default=MAILING_STATUSES[0][0])
 
     class Meta:

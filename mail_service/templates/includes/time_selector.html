@@ -1,0 +1,17 @@
+{% load mail_service_tags %}
+
+<div class="time-selector">
+    <div class="time-selector-title">SELECT TIME</div>
+
+    <div class="time">
+        <form method="get">
+            <label for="hours">enter hours (from 0 to 23)</label>
+            <input id="hours" type="number" name="hours" min="0" max="23" value="10">
+
+            <label for="minutes">enter minutes (from 0 to 59)</label>
+            <input id="minutes" type="number" name="minutes" min="0" max="59" value="00">
+
+            <button type="submit">confirm</button>
+        </form>
+    </div>
+</div>

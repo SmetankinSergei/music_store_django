@@ -19,7 +19,7 @@
                 {{ form.as_p }}
 
                 <input type="hidden" name="service_name" value="{{session.mailing_type}}">
-                <button type="submit">Submit</button>
+                <button type="submit">Confirm</button>
             </form>
 
             <div class="service-buttons">
@@ -58,37 +58,45 @@
     </div>
 </div>
 
+<div class="second-line">
+    {% if session.mailing_type != 'ONE_TIME' %}
+        {% include 'includes/days_selector.html' %}
+    {% endif %}
 
-{% if session.mailing_type != 'ONE_TIME' %}
-    <div class="days-choice-block">
-        <div class="days-choice-title">SELECT DAYS</div>
+    {% include 'includes/time_selector.html' %}
 
-        <div class="days">
-        {% if session.mailing_type == 'WEEK_DAY' %}
-            {% get_week_days as days %}
-            {% get_session_week_days as session_days %}
-            {% for day in days %}
-                {% if day in session_days %}
-                    <a href="?week_day={{day}}" class="week-day active-day">{{ day }}</a>
+    <div class="confirm-block">
+        <div class="confirm-title">CONFIRM MAILING</div>
+
+        {% if mailing_done %}
+            <a href="" class="confirm-button">confirm</a>
+        {% else %}
+            <p class="confirm-message">You can add a mailing only after you select all the required fields:</p>
+
+            {% if session.letter %}
+                <div class="letter-check field-check-active">letter</div>
+            {% else %}
+                <div class="letter-check field-check">letter</div>
+            {% endif %}
+
+            {% if session.recipients_list %}
+                <div class="recipients-check field-check-active">recipients</div>
+            {% else %}
+                <div class="recipients-check field-check">recipients</div>
+            {% endif %}
+
+            {% if session.mailing_type != 'ONE_TIME' %}
+                {% if session.week_days or session.month_days %}
+                    <div class="days-check field-check-active">days</div>
                 {% else %}
-                    <a href="?week_day={{day}}" class="week-day">{{ day }}</a>
+                    <div class="days-check field-check">days</div>
                 {% endif %}
-            {% endfor %}
+            {% endif %}
 
-        {% elif session.mailing_type == 'MONTH_DAY' %}
-            {% get_months_days as days %}
-            {% get_session_month_days as session_days %}
-            {% for day in days %}
-                {% if day in session_days %}
-                    <a href="?month_day={{day}}" class="month-day active-day">{{ day }}</a>
-                {% else %}
-                    <a href="?month_day={{day}}" class="month-day">{{ day }}</a>
-                {% endif %}
-            {% endfor %}
+            <div class="time-check field-check">time</div>
         {% endif %}
-        </div>
     </div>
-{% endif %}
+</div>
 
 <div class="correction" style="margin-bottom:5em;"></div>
 {% endblock %}

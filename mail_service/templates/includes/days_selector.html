@@ -1,0 +1,37 @@
+{% load mail_service_tags %}
+<div class="days-choice-block">
+    <div class="days-choice-title">SELECT DAYS</div>
+
+    <div class="buttons-block">
+        {% if session.mailing_type == 'WEEK_DAY' %}
+        <div class="days">
+            {% get_week_days as days %}
+            {% get_session_week_days as session_days %}
+            {% for day in days %}
+                {% if day in session_days %}
+                    <a href="?week_day={{day}}" class="week-day active-day">{{ day }}</a>
+                {% else %}
+                    <a href="?week_day={{day}}" class="week-day">{{ day }}</a>
+                {% endif %}
+            {% endfor %}
+
+        {% elif session.mailing_type == 'MONTH_DAY' %}
+        <div class="months">
+            {% get_months_days as days %}
+            {% get_session_month_days as session_days %}
+            {% for day in days %}
+                {% if day in session_days %}
+                    <a href="?month_day={{day}}" class="month-day active-day">{{ day }}</a>
+                {% else %}
+                    <a href="?month_day={{day}}" class="month-day">{{ day }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        </div>
+    <div class="common-buttons">
+        <a href="?action=add_all_days" class="add-all-button simple-button">add all</a>
+        <a href="?action=remove_all_days" class="remove-all-button simple-button">remove all</a>
+    </div>
+    </div>
+
+</div>
