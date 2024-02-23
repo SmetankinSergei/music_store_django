@@ -86,6 +86,10 @@
     margin: 0.5em;
 }
 
+.simple-button:hover {
+    background-color: #666666;
+}
+
 .letter-buttons {
     display: flex;
 }
@@ -139,6 +143,7 @@ input, textarea {
 }
 
 textarea {
+    resize: none;
     height: 8em;
 }
 

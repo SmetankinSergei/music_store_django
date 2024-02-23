@@ -1,7 +1,7 @@
 {% load mail_service_tags %}
 
 <div class="recipient">
-    <div class="recipient-name">{{ recipient.full_name }}</div>
+    <div class="recipient-name">{{ recipient.full_name|truncatechars:25 }}</div>
     {% get_current_recipients session as recipients %}
     {% if recipient in recipients %}
         <a class="remove-recipient-button simple-button" href="?action=remove&recipient_pk={{recipient.pk}}">remove</a>
