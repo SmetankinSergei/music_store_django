@@ -15,6 +15,9 @@ class Recipient(models.Model):
     full_name = models.CharField(max_length=250)
     comment = models.TextField()
 
+    def __str__(self):
+        return self.full_name
+
     class Meta:
         verbose_name = 'ServiceClient'
         verbose_name_plural = 'ServiceClients'
@@ -23,9 +26,20 @@ class Recipient(models.Model):
 class Mailing(models.Model):
     send_time = models.TimeField(default=timezone.now)
     recipients = models.ManyToManyField(Recipient, related_name='recipients', **NULLABLE)
+    week_days = models.CharField(max_length=250, **NULLABLE)
+    month_days = models.CharField(max_length=250, **NULLABLE)
     letter = models.ForeignKey('MailContent', on_delete=CASCADE, **NULLABLE)
     mailing_type = models.CharField(max_length=50, choices=MAILING_TYPES)
     status = models.CharField(max_length=50, choices=MAILING_STATUSES, default=MAILING_STATUSES[0][0])
+
+    def __str__(self):
+        return f'{__class__.__name__}(' \
+               f'send_time={self.send_time}, ' \
+               f'week_days={self.week_days},' \
+               f'month_days={self.month_days},' \
+               f'letter={self.letter},' \
+               f'mailing_type={self.mailing_type},' \
+               f'status={self.status})'
 
     class Meta:
         verbose_name = 'Mailing'
@@ -35,6 +49,9 @@ class Mailing(models.Model):
 class MailContent(models.Model):
     subject = models.CharField(max_length=250)
     content = models.TextField()
+
+    def __str__(self):
+        return self.subject
 
     @staticmethod
     def get_absolute_url():

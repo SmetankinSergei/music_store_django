@@ -24,6 +24,13 @@
 
     <div class="mailing-list">
         <h2 class="list-name">All mailings</h2>
+
+        <div class="mailings">
+            {% get_mailings as mailings %}
+            {% for mailing in mailings %}
+                {% include 'includes/mailing.html' %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

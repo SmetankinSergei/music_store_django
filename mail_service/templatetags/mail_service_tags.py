@@ -1,7 +1,7 @@
 from django import template
 
 from mail_service.constants import MAILING_SERVICES, WEEK_DAYS, MONTHS_DAYS
-from mail_service.models import Recipient, MailContent
+from mail_service.models import Recipient, MailContent, Mailing
 from mail_service.session import session
 
 register = template.Library()
@@ -45,6 +45,11 @@ def get_session_week_days():
 @register.simple_tag()
 def get_session_month_days():
     return session.months_days
+
+
+@register.simple_tag()
+def get_mailings():
+    return Mailing.objects.all()
 
 
 @register.simple_tag()

@@ -1,7 +1,9 @@
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, TemplateView
 
 from mail_service.forms import MailingForm
-from mail_service.models import MailContent
+from mail_service.models import MailContent, Mailing, Recipient
 from mail_service.request_handler import recipient_handler, letter_handler, period_handler, time_handler
 from mail_service.session import session
 
@@ -48,3 +50,22 @@ class MailingUpdateView(UpdateView):
 
 class MailingDeleteView(DeleteView):
     pass
+
+
+def confirm_mailing(request):
+    mailing = Mailing.objects.create(
+        send_time=session.mailing_time,
+        letter=session.letter,
+        mailing_type=session.mailing_type,
+    )
+    if session.week_days:
+        mailing.week_days = ','.join(session.week_days)
+    elif session.months_days:
+        mailing.month_days = ','.join([str(i) for i in session.months_days])
+    mailing.save()
+    recipients_list = [Recipient.objects.get(full_name=recipient) for recipient in session.recipients_list]
+    for rec in recipients_list:
+        print(rec)
+    mailing.recipients.set(recipients_list)
+    print(mailing)
+    return redirect('mail_service:mail_service')

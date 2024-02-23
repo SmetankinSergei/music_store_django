@@ -71,7 +71,7 @@
         {% mailing_done as done %}
 
         {% if done %}
-            <a href="" class="confirm-button">confirm</a>
+            <a href="{% url 'mail_service:confirm_mailing' %}" class="confirm-button">confirm</a>
         {% else %}
             <p class="confirm-message">You can add a mailing only after you select all the required fields:</p>
 

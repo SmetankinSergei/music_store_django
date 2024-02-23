@@ -1,0 +1,17 @@
+<div class="mailing">
+    <div class="mailing-info">
+        <div>{{ mailing.letter|truncatechars:25 }}</div>
+
+        <div class="period">
+            <div>{{ mailing.mailing_type }}</div>
+            <pre> | </pre>
+            <div>{{ mailing.send_time }}</div>
+        </div>
+    </div>
+
+    <div class="mailing-buttons">
+        <a href="" class="mailing-button edit-button">edit</a>
+        <a href="" class="mailing-button show-button">show</a>
+        <a href="" class="mailing-button delete-button">delete</a>
+    </div>
+</div>
