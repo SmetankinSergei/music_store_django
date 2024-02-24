@@ -20,21 +20,7 @@ def mail_process(*args, **kwargs):
         'WEEK_DAY': current_weekday
     }
 
-    one_time_mailings = Mailing.objects.filter(
-        Q(send_time__lte=current_time),
-        Q(status__in=('CREATED', 'IN_PROGRES')),
-        Q(mailing_type='ONE_TIME')
-    )
-
-    if time(16, 15) <= current_time <= time(16, 19):
-        many_time_mailings = Mailing.objects.filter(
-            Q(send_time__lte=current_time),
-            Q(status__in=('CREATED', 'IN_PROGRES')),
-            Q(mailing_type__in=('WEEK_DAY', 'MONTH_DAY'))
-        )
-        combined_mailings = many_time_mailings | one_time_mailings
-    else:
-        combined_mailings = one_time_mailings
+    combined_mailings = get_mailings(current_time)
 
     for mailing in combined_mailings:
         mailing.status = MAILING_STATUSES[1][0]
@@ -48,6 +34,24 @@ def mail_process(*args, **kwargs):
                 days = [int(day) for day in mailing.month_days.split(',')]
             if current_day[mailing.mailing_type] in days:
                 send_letters(mailing)
+
+
+def get_mailings(current_time):
+    one_time_mailings = Mailing.objects.filter(
+        Q(send_time__lte=current_time),
+        Q(status__in=('CREATED', 'IN_PROGRES')),
+        Q(mailing_type='ONE_TIME')
+    )
+
+    if time(16, 35) <= current_time <= time(16, 39):
+        many_time_mailings = Mailing.objects.filter(
+            Q(send_time__lte=current_time),
+            Q(status__in=('CREATED', 'IN_PROGRES')),
+            Q(mailing_type__in=('WEEK_DAY', 'MONTH_DAY'))
+        )
+        return many_time_mailings | one_time_mailings
+    else:
+        return one_time_mailings
 
 
 def send_letters(mailing):
