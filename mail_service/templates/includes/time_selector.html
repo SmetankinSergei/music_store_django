@@ -5,11 +5,39 @@
 
     <div class="time">
         <form method="get">
-            <label for="hours">enter hours (from 0 to 23)</label>
-            <input id="hours" type="number" name="hours" min="0" max="23" value="10">
+            <div class="time-message">enter hours (from 0 to 23)<br>enter minutes (from 0 to 59)</div>
 
-            <label for="minutes">enter minutes (from 0 to 59)</label>
-            <input id="minutes" type="number" name="minutes" min="0" max="59" value="00">
+            <div class="time-inputs">
+                <div class="hours">
+                    <label for="hours">HOURS:</label>
+                    <input id="hours" type="number" name="hours" min="0" max="23" value="10">
+                </div>
+
+                <div class="minutes">
+                    <label for="minutes">MINUTES:</label>
+                    <input id="minutes" type="number" name="minutes" min="0" max="59" value="00">
+                </div>
+            </div>
+
+            <div class="period-days-message">enter start day<br>enter finish day</div>
+
+            <div class="period-inputs">
+                <div class="start">
+                    <label for="start-month">START MONTH:</label>
+                    <input id="start-month" type="number" name="start-month" min="1" max="12" value="1">
+
+                    <label for="start-day">START DAY:</label>
+                    <input id="start-day" type="number" name="start-day" min="1" max="31" value="1">
+                </div>
+
+                <div class="finish">
+                    <label for="finish-month">FINISH MONTH:</label>
+                    <input id="finish-month" type="number" name="finish-month" min="1" max="12" value="1">
+
+                    <label for="finish-day">FINISH DAY:</label>
+                    <input id="finish-day" type="number" name="finish-day" min="1" max="31" value="1">
+                </div>
+            </div>
 
             <button type="submit">confirm</button>
         </form>

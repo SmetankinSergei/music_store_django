@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mail_service_tags %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/new_mailing.css' %}">
+<link rel="stylesheet" href="{% static 'css/update_mailing.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="correction" style="margin-bottom:6em;"></div>
+
+<div class="main-content">
+    <div class="mailing-form">
+            <div class="mailings-title">CHANGE LETTER</div>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input type="hidden" name="service_name" value="{{session.mailing_type}}">
+                <button type="submit">Confirm</button>
+            </form>
+    </div>
+</div>
+{% endblock %}

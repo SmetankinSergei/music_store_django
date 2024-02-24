@@ -18,7 +18,7 @@ def get_recipients_list():
 
 
 @register.simple_tag()
-def get_current_recipients(session):
+def get_current_recipients():
     return session.recipients_list
 
 

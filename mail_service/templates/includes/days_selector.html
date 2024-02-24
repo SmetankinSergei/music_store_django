@@ -3,7 +3,7 @@
     <div class="days-choice-title">SELECT DAYS</div>
 
     <div class="buttons-block">
-        {% if session.mailing_type == 'WEEK_DAY' %}
+        {% if session.mailing_type == 'WEEK_DAY' or object.mailing_type == 'WEEK_DAY' %}
         <div class="days">
             {% get_week_days as days %}
             {% get_session_week_days as session_days %}
@@ -15,7 +15,7 @@
                 {% endif %}
             {% endfor %}
 
-        {% elif session.mailing_type == 'MONTH_DAY' %}
+        {% elif session.mailing_type == 'MONTH_DAY' or object.mailing_type == 'MONTH_DAY' %}
         <div class="months">
             {% get_months_days as days %}
             {% get_session_month_days as session_days %}

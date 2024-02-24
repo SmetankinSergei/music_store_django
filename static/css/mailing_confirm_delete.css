@@ -1,0 +1,43 @@
+form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50em;
+    height: 20em;
+    text-align: center;
+    padding: 1em;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: #666666;
+}
+
+.question {
+    font-size: 2em;
+    color: red;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    display: block;
+    width: 10em;
+    height: 3em;
+    color: #bbb7b7;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+    background-color: red;
+}
+
+.button:hover {
+    background-color: #666666;
+}
+
+.cancel-button {
+    width: 9.5em;
+    padding-top: 1em;
+    background-color: #252525;
+}

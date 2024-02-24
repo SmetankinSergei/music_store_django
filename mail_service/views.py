@@ -19,7 +19,17 @@ class MailServiceListView(TemplateView):
 
 
 class MailingDetailView(DetailView):
-    pass
+    model = Mailing
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['title'] = 'mailing details'
+        try:
+            recipients = self.object.recipients.all()
+        except AttributeError:
+            recipients = []
+        context['recipients'] = recipients
+        return context
 
 
 class MailingCreateView(CreateView):
@@ -45,11 +55,21 @@ class MailingCreateView(CreateView):
 
 
 class MailingUpdateView(UpdateView):
-    pass
+    model = Mailing
+    fields = ['letter']
+    template_name = 'mailing_update_form.html'
+    success_url = reverse_lazy('mail_service:mail_service')
 
 
 class MailingDeleteView(DeleteView):
-    pass
+    model = Mailing
+    success_url = reverse_lazy('mail_service:mail_service')
+    extra_context = {'title': 'delete mailing'}
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['session'] = session
+        return context
 
 
 def confirm_mailing(request):
@@ -64,8 +84,5 @@ def confirm_mailing(request):
         mailing.month_days = ','.join([str(i) for i in session.months_days])
     mailing.save()
     recipients_list = [Recipient.objects.get(full_name=recipient) for recipient in session.recipients_list]
-    for rec in recipients_list:
-        print(rec)
     mailing.recipients.set(recipients_list)
-    print(mailing)
     return redirect('mail_service:mail_service')

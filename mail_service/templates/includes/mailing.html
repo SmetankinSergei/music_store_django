@@ -10,8 +10,8 @@
     </div>
 
     <div class="mailing-buttons">
-        <a href="" class="mailing-button edit-button">edit</a>
-        <a href="" class="mailing-button show-button">show</a>
-        <a href="" class="mailing-button delete-button">delete</a>
+        <a href="{% url 'mail_service:edit_mailing' mailing.pk %}" class="mailing-button edit-button">edit</a>
+        <a href="{% url 'mail_service:mailing_details' mailing.pk %}" class="mailing-button show-button">show</a>
+        <a href="{% url 'mail_service:delete_mailing' mailing.pk %}" class="mailing-button delete-button">delete</a>
     </div>
 </div>

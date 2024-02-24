@@ -280,3 +280,41 @@ button {
 .field-check-active {
     background-color: green;
 }
+
+.time-message, .period-days-message {
+    color: #252525;
+    text-align: center;
+    margin: 1em;
+}
+
+.time-inputs, .period-inputs {
+    display: flex;
+    margin-right: 0.25em;
+    justify-content: center;
+}
+
+.hours {
+    margin-right: 1em;
+}
+
+.minutes, .hours, .start, .finish {
+    display: flex;
+    margin: 0 auto;
+}
+
+.time-inputs input, .period-inputs input {
+    width: 5em;
+}
+
+.period-inputs {
+    display: block;
+    margin-inline: 1em;
+}
+
+#start-month, #finish-month {
+    margin-right: 3em;
+}
+
+#start-day, #finish-day {
+    margin-right: 0.5em;
+}

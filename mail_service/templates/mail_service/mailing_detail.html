@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mail_service_tags %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/mailing_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="correction" style="margin-top:5em;"></div>
+
+<div class="mailing">
+    <div class="letter">
+        <div class="letter-title">LETTER</div>
+        <div class="letter-content">
+            <div class="subject">{{ object.letter.subject }}</div>
+            <p>{{ object.letter.content }}</p>
+        </div>
+    </div>
+
+    <div class="recipients">
+        <div class="recipients-title">RECIPIENTS</div>
+        <div class="recipients-list">
+            {% for recipient in recipients %}
+                <div>{{ recipient.full_name }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="period">
+        <div class="period-title">MAILING PERIOD</div>
+        <div class="period-details">
+            <div class="period-row">
+                <div class="start-title">START MAILING:</div>
+                <div class="start">{{ object.start }}</div>
+            </div>
+
+            <div class="period-row">
+                <div class="finish-title">FINISH MAILING:</div>
+                <div class="finish">{{ object.finish }}</div>
+            </div>
+
+            <div class="period-row">
+                <div class="time-title">MAILING TIME:</div>
+                <div class="time">{{ object.send_time }}</div>
+            </div>
+
+            <div class="period-row">
+                <div class="time-title">MAILING STATUS:</div>
+            <div class="status">{{ object.status }}</div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

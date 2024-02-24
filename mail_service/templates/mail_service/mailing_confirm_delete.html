@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mail_service_tags %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/mailing_confirm_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="correction" style="margin-top:5em;"></div>
+
+<form method="post">
+    {% csrf_token %}
+    <p class="question">delete this mailing?</p>
+    <div class="buttons">
+        <button class="delete-button button" type="submit">confirm</button>
+        <a class="cancel-button button" href="{% url 'mail_service:mail_service' %}">cancel</a>
+    </div>
+</form>
+{% endblock %}
