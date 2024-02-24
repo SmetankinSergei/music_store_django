@@ -73,13 +73,14 @@ class MailingDeleteView(LoginRequiredMixin, DeleteView):
         return context
 
 
-def confirm_mailing():
+def confirm_mailing(request):
     mailing = Mailing.objects.create(
         send_time=session.mailing_time,
         start=session.mailing_start,
         finish=session.mailing_finish,
         letter=session.letter,
         mailing_type=session.mailing_type,
+        owner=request.user.email,
     )
     if session.week_days:
         mailing.week_days = ','.join(session.week_days)

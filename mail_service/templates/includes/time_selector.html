@@ -19,6 +19,7 @@
                 </div>
             </div>
 
+            {% if session.mailing_type != 'ONE_TIME' %}
             <div class="period-days-message">enter start day<br>enter finish day</div>
 
             <div class="period-inputs">
@@ -38,6 +39,7 @@
                     <input id="finish-day" type="number" name="finish-day" min="1" max="31" value="1">
                 </div>
             </div>
+            {% endif %}
 
             <button type="submit">confirm</button>
         </form>

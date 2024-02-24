@@ -19,5 +19,14 @@ MAILING_STATUSES = [
 FAKE_RECIPIENTS_AMOUNT = 20
 
 WEEK_DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+WEEK_DAYS_DICT = {
+    0: 'monday',
+    1: 'tuesday',
+    2: 'wednesday',
+    3: 'thursday',
+    4: 'friday',
+    5: 'saturday',
+    6: 'sunday'
+}
 MONTHS_DAYS = range(1, 32)
 SHORT_MONTHS = [4, 6, 9, 11]

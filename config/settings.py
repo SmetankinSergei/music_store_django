@@ -165,7 +165,7 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
 CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-CELERY_BEAT_SCHEDULE = {"sample_task": {"task": "mail_service.tasks.get_task", "schedule": crontab(minute="*/1"), }, }
+CELERY_BEAT_SCHEDULE = {"sample_task": {"task": "mail_service.tasks.mail_process", "schedule": crontab(minute="*/1"), }, }
 # CELERY_BEAT_SCHEDULE = { "sample_task": { "task": "core.tasks.sample_task", "schedule": crontab(minute="*/1"), }, "send_email_report": { "task": "core.tasks.send_email_report", "schedule": crontab(hour="*/1"), }, }
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'

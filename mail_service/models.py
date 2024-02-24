@@ -33,6 +33,7 @@ class Mailing(models.Model):
     letter = models.ForeignKey('MailContent', on_delete=CASCADE, **NULLABLE)
     mailing_type = models.CharField(max_length=50, choices=MAILING_TYPES)
     status = models.CharField(max_length=50, choices=MAILING_STATUSES, default=MAILING_STATUSES[0][0])
+    owner = models.EmailField(**NULLABLE)
 
     def __str__(self):
         return f'{__class__.__name__}(' \

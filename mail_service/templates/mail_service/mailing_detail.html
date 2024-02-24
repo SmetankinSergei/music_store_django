@@ -30,6 +30,7 @@
     <div class="period">
         <div class="period-title">MAILING PERIOD</div>
         <div class="period-details">
+            {% if object.mailing_type != 'ONE_TIME' %}
             <div class="period-row">
                 <div class="start-title">START MAILING:</div>
                 <div class="start">{{ object.start }}</div>
@@ -39,6 +40,7 @@
                 <div class="finish-title">FINISH MAILING:</div>
                 <div class="finish">{{ object.finish }}</div>
             </div>
+            {% endif %}
 
             <div class="period-row">
                 <div class="time-title">MAILING TIME:</div>

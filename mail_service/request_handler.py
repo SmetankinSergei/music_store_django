@@ -68,21 +68,21 @@ def period_handler(request):
 def time_handler(request):
     hours = request.GET.get('hours')
     minutes = request.GET.get('minutes')
-    start_month = int(request.GET.get('start-month'))
-    start_day = int(request.GET.get('start-day'))
-    finish_month = int(request.GET.get('finish-month'))
-    finish_day = int(request.GET.get('finish-day'))
-    current_year = datetime.datetime.now().year
-
-    start_day = check_day_number(start_month, start_day)
-    finish_day = check_day_number(finish_month, finish_day)
-
     time_instance = datetime.time(int(hours), int(minutes))
-    start_instance = datetime.date(current_year, start_month, start_day)
-    finish_instance = datetime.date(current_year, finish_month, finish_day)
     session.mailing_time = time_instance
-    session.mailing_start = start_instance
-    session.mailing_finish = finish_instance
+    if session.mailing_type != 'ONE_TIME':
+        start_month = int(request.GET.get('start-month'))
+        start_day = int(request.GET.get('start-day'))
+        finish_month = int(request.GET.get('finish-month'))
+        finish_day = int(request.GET.get('finish-day'))
+        current_year = datetime.datetime.now().year
+
+        start_day = check_day_number(start_month, start_day)
+        finish_day = check_day_number(finish_month, finish_day)
+        start_instance = datetime.date(current_year, start_month, start_day)
+        finish_instance = datetime.date(current_year, finish_month, finish_day)
+        session.mailing_start = start_instance
+        session.mailing_finish = finish_instance
 
 
 def check_day_number(month, day):
