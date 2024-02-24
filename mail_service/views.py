@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, TemplateView
@@ -8,7 +9,7 @@ from mail_service.request_handler import recipient_handler, letter_handler, peri
 from mail_service.session import session
 
 
-class MailServiceListView(TemplateView):
+class MailServiceListView(LoginRequiredMixin, TemplateView):
     template_name = 'mail_service_list.html'
     extra_context = {'title': 'mail service'}
 
@@ -18,7 +19,7 @@ class MailServiceListView(TemplateView):
         return context
 
 
-class MailingDetailView(DetailView):
+class MailingDetailView(LoginRequiredMixin, DetailView):
     model = Mailing
 
     def get_context_data(self, **kwargs):
@@ -32,7 +33,7 @@ class MailingDetailView(DetailView):
         return context
 
 
-class MailingCreateView(CreateView):
+class MailingCreateView(LoginRequiredMixin, CreateView):
     model = MailContent
     form_class = MailingForm
     template_name = 'mailing_form.html'
@@ -54,14 +55,14 @@ class MailingCreateView(CreateView):
         return context
 
 
-class MailingUpdateView(UpdateView):
+class MailingUpdateView(LoginRequiredMixin, UpdateView):
     model = Mailing
     fields = ['letter']
     template_name = 'mailing_update_form.html'
     success_url = reverse_lazy('mail_service:mail_service')
 
 
-class MailingDeleteView(DeleteView):
+class MailingDeleteView(LoginRequiredMixin, DeleteView):
     model = Mailing
     success_url = reverse_lazy('mail_service:mail_service')
     extra_context = {'title': 'delete mailing'}
@@ -72,9 +73,11 @@ class MailingDeleteView(DeleteView):
         return context
 
 
-def confirm_mailing(request):
+def confirm_mailing():
     mailing = Mailing.objects.create(
         send_time=session.mailing_time,
+        start=session.mailing_start,
+        finish=session.mailing_finish,
         letter=session.letter,
         mailing_type=session.mailing_type,
     )

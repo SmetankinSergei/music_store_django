@@ -25,8 +25,8 @@ class Recipient(models.Model):
 
 class Mailing(models.Model):
     send_time = models.TimeField(default=timezone.now)
-    start = models.DateTimeField(**NULLABLE)
-    finish = models.DateTimeField(**NULLABLE)
+    start = models.DateField(**NULLABLE)
+    finish = models.DateField(**NULLABLE)
     recipients = models.ManyToManyField(Recipient, related_name='recipients', **NULLABLE)
     week_days = models.CharField(max_length=250, **NULLABLE)
     month_days = models.CharField(max_length=250, **NULLABLE)

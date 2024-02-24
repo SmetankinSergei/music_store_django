@@ -20,3 +20,4 @@ FAKE_RECIPIENTS_AMOUNT = 20
 
 WEEK_DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 MONTHS_DAYS = range(1, 32)
+SHORT_MONTHS = [4, 6, 9, 11]

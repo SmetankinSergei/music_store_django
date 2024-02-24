@@ -1,6 +1,6 @@
 import datetime
 
-from mail_service.constants import WEEK_DAYS, MONTHS_DAYS
+from mail_service.constants import WEEK_DAYS, MONTHS_DAYS, SHORT_MONTHS
 from mail_service.models import Recipient, MailContent
 from mail_service.session import session
 from mail_service.templatetags.mail_service_tags import get_recipients_list
@@ -68,10 +68,27 @@ def period_handler(request):
 def time_handler(request):
     hours = request.GET.get('hours')
     minutes = request.GET.get('minutes')
-    if not hours:
-        hours = '00'
-    if not minutes:
-        minutes = '00'
+    start_month = int(request.GET.get('start-month'))
+    start_day = int(request.GET.get('start-day'))
+    finish_month = int(request.GET.get('finish-month'))
+    finish_day = int(request.GET.get('finish-day'))
+    current_year = datetime.datetime.now().year
+
+    start_day = check_day_number(start_month, start_day)
+    finish_day = check_day_number(finish_month, finish_day)
 
     time_instance = datetime.time(int(hours), int(minutes))
+    start_instance = datetime.date(current_year, start_month, start_day)
+    finish_instance = datetime.date(current_year, finish_month, finish_day)
     session.mailing_time = time_instance
+    session.mailing_start = start_instance
+    session.mailing_finish = finish_instance
+
+
+def check_day_number(month, day):
+    if month == 2 and day > 28:
+        return 28
+    elif month in SHORT_MONTHS and day == 31:
+        return 30
+    else:
+        return day
