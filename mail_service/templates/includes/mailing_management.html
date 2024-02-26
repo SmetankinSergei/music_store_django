@@ -1,4 +1,4 @@
-{{ mailing.letter.name }}
+{{ mailing.letter.subject|truncatechars:25 }}
 <br>
 {{ mailing.send_time }}
 <br>
@@ -13,7 +13,7 @@
 {{ mailing.owner }}
 <br>
 {% if mailing.status != 'SENT' %}
-    <a href="?mailing_pk={{mailing.pk}}">deactivate</a>
+    <a href="?mailing_pk={{mailing.pk}}" class="deactivate-button">deactivate</a>
 {% else %}
-    <a href="?mailing_pk={{mailing.pk}}">activate</a>
+    <a href="?mailing_pk={{mailing.pk}}" class="activate-button">activate</a>
 {% endif %}
