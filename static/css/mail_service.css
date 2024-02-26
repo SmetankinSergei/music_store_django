@@ -107,3 +107,9 @@
 .delete-button {
     background-color: red;
 }
+
+.mailings-statistics {
+    margin-top: 1em;
+    display: flex;
+    color: #252525;
+}

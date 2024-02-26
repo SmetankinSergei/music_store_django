@@ -48,8 +48,8 @@ def get_session_month_days():
 
 
 @register.simple_tag()
-def get_mailings():
-    return Mailing.objects.all()
+def get_mailings(user):
+    return Mailing.objects.filter(owner=user)
 
 
 @register.simple_tag()
@@ -61,3 +61,18 @@ def mailing_done():
             else:
                 return False
         return True
+
+
+@register.simple_tag()
+def get_active_mailings_amount(user):
+    return len(Mailing.objects.filter(owner=user, status__in=['CREATED', 'IN_PROGRES']))
+
+
+@register.simple_tag()
+def get_unique_clients_amount(user):
+    mailings = Mailing.objects.filter(owner=user)
+    return sum([len(get_mailing_recipients_list(mailing)) for mailing in mailings])
+
+
+def get_mailing_recipients_list(mailing):
+    return mailing.recipients.all()

@@ -1,8 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView, TemplateView
 
+from home.templatetags.site_sections_tags import is_manager
 from mail_service.forms import MailingForm
 from mail_service.models import MailContent, Mailing, Recipient
 from mail_service.request_handler import recipient_handler, letter_handler, period_handler, time_handler
@@ -90,3 +91,9 @@ def confirm_mailing(request):
     recipients_list = [Recipient.objects.get(full_name=recipient) for recipient in session.recipients_list]
     mailing.recipients.set(recipients_list)
     return redirect('mail_service:mail_service')
+
+
+def manager_panel(request):
+    if not is_manager(request.user):
+        return redirect('home:home')
+    return render(request, 'mail_service/manager_panel.html', {'title': 'manager panel'})

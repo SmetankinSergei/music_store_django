@@ -22,10 +22,13 @@
 
             {% get_site_sections as sections %}
             {% for section in sections %}
-                {% if section.name == title %}
-                    <div class="current-section">{{ section.name }}</div>
-                {% else %}
-                    <a class="section-button" href="{% url section.url %}">{{ section.name }}</a>
+            {% is_manager user as is_manager %}
+                {% if is_manager or section.name != 'manager panel' %}
+                    {% if section.name == title %}
+                        <div class="current-section">{{ section.name }}</div>
+                    {% else %}
+                        <a class="section-button" href="{% url section.url %}">{{ section.name }}</a>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>

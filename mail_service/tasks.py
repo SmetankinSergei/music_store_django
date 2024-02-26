@@ -43,7 +43,7 @@ def get_mailings(current_time):
         Q(mailing_type='ONE_TIME')
     )
 
-    if time(16, 35) <= current_time <= time(16, 39):
+    if time(16, 35) <= current_time <= time(16, 37):
         many_time_mailings = Mailing.objects.filter(
             Q(send_time__lte=current_time),
             Q(status__in=('CREATED', 'IN_PROGRES')),

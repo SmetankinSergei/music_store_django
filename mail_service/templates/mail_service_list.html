@@ -26,10 +26,20 @@
         <h2 class="list-name">All mailings</h2>
 
         <div class="mailings">
-            {% get_mailings as mailings %}
+            {% get_mailings user as mailings %}
             {% for mailing in mailings %}
                 {% include 'includes/mailing.html' %}
             {% endfor %}
+        </div>
+
+        <div class="mailings-statistics">
+            <div class="total-mailings">total mailings: {{ mailings|length }}</div>
+            <pre> | </pre>
+            {% get_active_mailings_amount user as active %}
+            <div class="active-mailings">active mailings: {{ active }}</div>
+            <pre> | </pre>
+            {% get_unique_clients_amount user as clients %}
+            <div class="active-mailings">clients amount: {{ clients }}</div>
         </div>
     </div>
 </div>
