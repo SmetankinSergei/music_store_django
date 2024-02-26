@@ -3,6 +3,7 @@ from django import template
 from mail_service.constants import MAILING_SERVICES, WEEK_DAYS, MONTHS_DAYS
 from mail_service.models import Recipient, MailContent, Mailing
 from mail_service.session import session
+from users.models import User
 
 register = template.Library()
 
@@ -76,3 +77,13 @@ def get_unique_clients_amount(user):
 
 def get_mailing_recipients_list(mailing):
     return mailing.recipients.all()
+
+
+@register.simple_tag()
+def get_all_mailings():
+    return Mailing.objects.all()
+
+
+@register.simple_tag()
+def get_all_clients():
+    return User.objects.all()

@@ -7,5 +7,29 @@
 {% endblock %}
 
 {% block content %}
+<div class="top-correction"></div>
 
+<div class="main-content">
+    <div class="clients">
+        <div class="block-title">MAILINGS</div>
+
+        <div class="items-list">
+            {% get_all_mailings as all_mailings %}
+            {% for mailing in all_mailings %}
+                <div class="mailing">{% include 'includes/mailing_management.html' %}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="mailings">
+        <div class="block-title">CLIENTS</div>
+
+        <div class="items-list">
+            {% get_all_clients as all_clients %}
+            {% for client in all_clients %}
+                <div class="client">{% include 'includes/client_management.html' %}</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

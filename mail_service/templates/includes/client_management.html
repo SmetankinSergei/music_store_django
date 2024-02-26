@@ -1,0 +1,10 @@
+{{ client.email }}
+<br>
+{{ client.is_active }}
+<br>
+
+{% if client.is_active %}
+    <a href="?client_pk={{client.pk}}">deactivate</a>
+{% else %}
+    <a href="?client_pk={{client.pk}}">activate</a>
+{% endif %}

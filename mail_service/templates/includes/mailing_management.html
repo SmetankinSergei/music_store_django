@@ -1,0 +1,19 @@
+{{ mailing.letter.name }}
+<br>
+{{ mailing.send_time }}
+<br>
+{{ mailing.start }}
+<br>
+{{ mailing.finish }}
+<br>
+{{ mailing.mailing_type }}
+<br>
+{{ mailing.status }}
+<br>
+{{ mailing.owner }}
+<br>
+{% if mailing.status != 'SENT' %}
+    <a href="?mailing_pk={{mailing.pk}}">deactivate</a>
+{% else %}
+    <a href="?mailing_pk={{mailing.pk}}">activate</a>
+{% endif %}

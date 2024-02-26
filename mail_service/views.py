@@ -8,6 +8,7 @@ from mail_service.forms import MailingForm
 from mail_service.models import MailContent, Mailing, Recipient
 from mail_service.request_handler import recipient_handler, letter_handler, period_handler, time_handler
 from mail_service.session import session
+from users.models import User
 
 
 class MailServiceListView(LoginRequiredMixin, TemplateView):
@@ -96,4 +97,15 @@ def confirm_mailing(request):
 def manager_panel(request):
     if not is_manager(request.user):
         return redirect('home:home')
+    if request.GET.get('client_pk'):
+        client = User.objects.get(pk=int(request.GET.get('client_pk')))
+        client.is_active = not client.is_active
+        client.save()
+    if request.GET.get('mailing_pk'):
+        mailing = Mailing.objects.get(pk=int(request.GET.get('mailing_pk')))
+        if mailing.status == 'SENT':
+            mailing.status = 'IN_PROGRESS'
+        else:
+            mailing.status = 'SENT'
+        mailing.save()
     return render(request, 'mail_service/manager_panel.html', {'title': 'manager panel'})

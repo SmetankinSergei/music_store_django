@@ -1,0 +1,28 @@
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em;
+}
+
+.clients, .mailings {
+    width: 49%;
+    background-color: #666666;
+    border: solid 1px #000;
+    border-radius: 0.5em;
+}
+
+.items-list {
+    overflow: auto;
+    height: 35em;
+}
+
+.block-title {
+    border-bottom: solid 1px #000;
+    padding-top: 0.25em;
+    height: 1.5em;
+    font-size: 2em;
+    text-align: center;
+    color: #252525;
+    font-weight: bold;
+    background-color: #505050;
+}

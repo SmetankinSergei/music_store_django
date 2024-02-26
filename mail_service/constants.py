@@ -12,7 +12,7 @@ MAILING_TYPES = [
 
 MAILING_STATUSES = [
     ('CREATED', 'CREATED'),
-    ('IN_PROGRES', 'IN_PROGRES'),
+    ('IN_PROGRESS', 'IN_PROGRESS'),
     ('SENT', 'SENT'),
 ]
 
