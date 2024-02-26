@@ -27,7 +27,7 @@
         <div class="items-list">
             {% get_all_clients as all_clients %}
             {% for client in all_clients %}
-                {% if not client.is_staff %}
+                {% if not client.is_staff and client != user %}
                     <div class="client">{% include 'includes/client_management.html' %}</div>
                 {% endif %}
             {% endfor %}

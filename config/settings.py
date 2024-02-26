@@ -12,12 +12,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from datetime import timedelta
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 from celery.schedules import crontab
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -172,13 +174,13 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Europe/Moscow'
 
-# CACHE_ENABLED = os.getenv('CACHE_ENABLED') == 'True'
-CACHE_ENABLED = True
+CACHE_ENABLED = os.getenv('CACHE_ENABLED') == '1'
+# CACHE_ENABLED = True
 if CACHE_ENABLED:
     CACHES = {
         "default": {
             "BACKEND": "django.core.cache.backends.redis.RedisCache",
-            "LOCATION": 'redis://127.0.0.1:6379',
+            "LOCATION": os.getenv('CACHE_LOCATION'),
             "TIMEOUT": 300
         }
     }

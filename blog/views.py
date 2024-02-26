@@ -2,6 +2,8 @@ from django.db.models import F
 from django.urls import reverse_lazy
 from django.utils.text import slugify
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 
 from blog.models import Article
 
@@ -46,6 +48,10 @@ class ArticleDeleteView(DeleteView):
 class ArticleDetailView(DetailView):
     model = Article
     extra_context = {'title': 'article'}
+
+    @method_decorator(cache_page(60 * 15))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_object(self, queryset=None):
         article = super().get_object(queryset)

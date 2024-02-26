@@ -4,6 +4,8 @@ from django.forms import inlineformset_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 
 from catalog.forms import ProductForm, VersionForm, ModeratedProductForm
 from catalog.models import Product, Version, Category
@@ -27,6 +29,10 @@ class ProductDetailView(DetailView):
         if active_version:
             context['active_version'] = active_version[0]
         return context
+
+    @method_decorator(cache_page(60 * 15))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
 
 class ProductCreateView(CreateView):
