@@ -1,0 +1,54 @@
+[
+{
+  "model": "blog.article",
+  "pk": 1,
+  "fields": {
+    "name": "My previous work!",
+    "slug": "my-previous-work",
+    "content": "My previous work! Look at this!!!",
+    "img": "articles_img/photo_2023-07-17_02-57-11.jpg",
+    "create_date": "2024-02-26",
+    "is_published": true,
+    "views_amount": 1
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 2,
+  "fields": {
+    "name": "My favourite bike!",
+    "slug": "my-favourite-bike",
+    "content": "My favourite bike ever!",
+    "img": "articles_img/photo_2020-07-13_11-53-50.jpg",
+    "create_date": "2024-02-26",
+    "is_published": true,
+    "views_amount": 0
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 3,
+  "fields": {
+    "name": "Open Air",
+    "slug": "open-air",
+    "content": "Summer Open Air!",
+    "img": "articles_img/photo_2020-01-03_13-54-59_1hVws9x.jpg",
+    "create_date": "2024-02-26",
+    "is_published": true,
+    "views_amount": 0
+  }
+},
+{
+  "model": "blog.article",
+  "pk": 4,
+  "fields": {
+    "name": "Trip to the Sea",
+    "slug": "trip-to-the-sea",
+    "content": "Motorcycle trip to the sea!",
+    "img": "articles_img/photo_2020-01-03_13-54-39.jpg",
+    "create_date": "2024-02-26",
+    "is_published": true,
+    "views_amount": 0
+  }
+}
+]

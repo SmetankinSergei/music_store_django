@@ -1,0 +1,326 @@
+[
+{
+  "model": "mail_service.maillog",
+  "pk": 1,
+  "fields": {
+    "last_attempt": "2024-02-24T12:17:42.118Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 2,
+  "fields": {
+    "last_attempt": "2024-02-24T12:18:00.191Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 3,
+  "fields": {
+    "last_attempt": "2024-02-24T12:18:00.203Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 4,
+  "fields": {
+    "last_attempt": "2024-02-24T12:25:21.979Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 5,
+  "fields": {
+    "last_attempt": "2024-02-24T12:49:27.340Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 6,
+  "fields": {
+    "last_attempt": "2024-02-24T13:04:01.223Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 7,
+  "fields": {
+    "last_attempt": "2024-02-24T13:07:01.059Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 8,
+  "fields": {
+    "last_attempt": "2024-02-24T13:07:01.072Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 9,
+  "fields": {
+    "last_attempt": "2024-02-24T13:07:01.083Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 10,
+  "fields": {
+    "last_attempt": "2024-02-24T13:08:00.263Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 11,
+  "fields": {
+    "last_attempt": "2024-02-24T13:08:00.275Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 12,
+  "fields": {
+    "last_attempt": "2024-02-24T13:08:00.286Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 13,
+  "fields": {
+    "last_attempt": "2024-02-24T13:09:00.264Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 14,
+  "fields": {
+    "last_attempt": "2024-02-24T13:09:00.277Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 15,
+  "fields": {
+    "last_attempt": "2024-02-24T13:10:00.234Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 16,
+  "fields": {
+    "last_attempt": "2024-02-24T13:10:00.250Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 17,
+  "fields": {
+    "last_attempt": "2024-02-24T13:11:00.150Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 18,
+  "fields": {
+    "last_attempt": "2024-02-24T13:11:00.163Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 19,
+  "fields": {
+    "last_attempt": "2024-02-24T13:12:00.281Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 20,
+  "fields": {
+    "last_attempt": "2024-02-24T13:12:00.294Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 21,
+  "fields": {
+    "last_attempt": "2024-02-24T13:13:00.153Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 22,
+  "fields": {
+    "last_attempt": "2024-02-24T13:13:00.164Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 23,
+  "fields": {
+    "last_attempt": "2024-02-24T13:14:00.358Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 24,
+  "fields": {
+    "last_attempt": "2024-02-24T13:14:00.370Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 25,
+  "fields": {
+    "last_attempt": "2024-02-24T13:17:01.135Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 26,
+  "fields": {
+    "last_attempt": "2024-02-24T13:17:01.147Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 27,
+  "fields": {
+    "last_attempt": "2024-02-24T13:18:00.263Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 28,
+  "fields": {
+    "last_attempt": "2024-02-24T13:18:00.273Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 29,
+  "fields": {
+    "last_attempt": "2024-02-24T13:36:01.017Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 30,
+  "fields": {
+    "last_attempt": "2024-02-24T13:36:01.039Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 31,
+  "fields": {
+    "last_attempt": "2024-02-24T13:36:01.252Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 32,
+  "fields": {
+    "last_attempt": "2024-02-24T13:36:01.266Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 33,
+  "fields": {
+    "last_attempt": "2024-02-24T13:37:00.142Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 34,
+  "fields": {
+    "last_attempt": "2024-02-24T13:37:00.150Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 35,
+  "fields": {
+    "last_attempt": "2024-02-24T13:38:00.266Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+},
+{
+  "model": "mail_service.maillog",
+  "pk": 36,
+  "fields": {
+    "last_attempt": "2024-02-24T13:38:00.277Z",
+    "status": "200",
+    "service_answer": "OK"
+  }
+}
+]

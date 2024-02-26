@@ -1,0 +1,42 @@
+[
+{
+  "model": "mail_service.mailcontent",
+  "pk": 1,
+  "fields": {
+    "subject": "Greeting!",
+    "content": "Welocome to our website!!!"
+  }
+},
+{
+  "model": "mail_service.mailcontent",
+  "pk": 2,
+  "fields": {
+    "subject": "Attention! Sale!",
+    "content": "Sale starts today! Big discounts await you!!!"
+  }
+},
+{
+  "model": "mail_service.mailcontent",
+  "pk": 3,
+  "fields": {
+    "subject": "We miss you!",
+    "content": "We miss you! You haven't been on our site for a long time!"
+  }
+},
+{
+  "model": "mail_service.mailcontent",
+  "pk": 4,
+  "fields": {
+    "subject": "New product!",
+    "content": "We have a new product! Go to the site and check it out!!!"
+  }
+},
+{
+  "model": "mail_service.mailcontent",
+  "pk": 5,
+  "fields": {
+    "subject": "Happy New Year!",
+    "content": "Dear client! Happy New Year!"
+  }
+}
+]

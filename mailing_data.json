@@ -1,0 +1,138 @@
+[
+{
+  "model": "mail_service.mailing",
+  "pk": 13,
+  "fields": {
+    "send_time": "10:00:00",
+    "start": null,
+    "finish": null,
+    "week_days": null,
+    "month_days": null,
+    "letter": 1,
+    "mailing_type": "ONE_TIME",
+    "status": "SENT",
+    "owner": "bobr@kurwa.kek",
+    "recipients": [
+      21,
+      22,
+      23
+    ]
+  }
+},
+{
+  "model": "mail_service.mailing",
+  "pk": 14,
+  "fields": {
+    "send_time": "10:00:00",
+    "start": "2024-01-01",
+    "finish": "2024-04-01",
+    "week_days": "monday",
+    "month_days": null,
+    "letter": 3,
+    "mailing_type": "WEEK_DAY",
+    "status": "IN_PROGRESS",
+    "owner": "bobr@kurwa.kek",
+    "recipients": [
+      21,
+      26
+    ]
+  }
+},
+{
+  "model": "mail_service.mailing",
+  "pk": 15,
+  "fields": {
+    "send_time": "10:00:00",
+    "start": "2024-01-01",
+    "finish": "2024-04-01",
+    "week_days": null,
+    "month_days": "5",
+    "letter": 4,
+    "mailing_type": "MONTH_DAY",
+    "status": "IN_PROGRESS",
+    "owner": "bobr@kurwa.kek",
+    "recipients": [
+      21,
+      22,
+      23,
+      24,
+      26
+    ]
+  }
+},
+{
+  "model": "mail_service.mailing",
+  "pk": 16,
+  "fields": {
+    "send_time": "15:18:00",
+    "start": "2024-01-01",
+    "finish": "2024-04-01",
+    "week_days": "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
+    "month_days": null,
+    "letter": 2,
+    "mailing_type": "WEEK_DAY",
+    "status": "IN_PROGRESS",
+    "owner": "bobr@kurwa.kek",
+    "recipients": [
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+},
+{
+  "model": "mail_service.mailing",
+  "pk": 27,
+  "fields": {
+    "send_time": "16:01:00",
+    "start": "2024-01-01",
+    "finish": "2024-03-01",
+    "week_days": "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
+    "month_days": null,
+    "letter": 4,
+    "mailing_type": "WEEK_DAY",
+    "status": "IN_PROGRESS",
+    "owner": "bobr@kurwa.kek",
+    "recipients": [
+      26
+    ]
+  }
+},
+{
+  "model": "mail_service.mailing",
+  "pk": 28,
+  "fields": {
+    "send_time": "16:04:00",
+    "start": null,
+    "finish": null,
+    "week_days": null,
+    "month_days": null,
+    "letter": 5,
+    "mailing_type": "ONE_TIME",
+    "status": "SENT",
+    "owner": "bobr@kurwa.kek",
+    "recipients": [
+      24
+    ]
+  }
+},
+{
+  "model": "mail_service.mailing",
+  "pk": 29,
+  "fields": {
+    "send_time": "10:00:00",
+    "start": "2024-01-01",
+    "finish": "2024-01-01",
+    "week_days": null,
+    "month_days": "1",
+    "letter": 5,
+    "mailing_type": "MONTH_DAY",
+    "status": "IN_PROGRESS",
+    "owner": "bobr@kurwa.kek",
+    "recipients": [
+      26
+    ]
+  }
+}
+]
